@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D204F9F72D3065F80053B662 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D204F9F62D3065F80053B662 /* Kingfisher */; };
-		D268DA002D2EFE3E002BD85D /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = D268D9FF2D2EFE3E002BD85D /* GoogleService-Info (1).plist */; };
+		D268DA002D2EFE3E002BD85D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D268D9FF2D2EFE3E002BD85D /* GoogleService-Info.plist */; };
 		D268DA032D2F01F3002BD85D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D268DA022D2F01F3002BD85D /* FirebaseAuth */; };
 		D268DA052D2F01F3002BD85D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D268DA042D2F01F3002BD85D /* FirebaseFirestore */; };
 		D268DA072D2F01F3002BD85D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D268DA062D2F01F3002BD85D /* FirebaseFirestoreSwift */; };
@@ -33,7 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D268D9FF2D2EFE3E002BD85D /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (1).plist"; sourceTree = "<group>"; };
+		D268D9FF2D2EFE3E002BD85D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D2E213A72D2DB2BA00532DB2 /* Luminote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Luminote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2E213B72D2DB2C700532DB2 /* LuminoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LuminoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2E213C12D2DB2C700532DB2 /* LuminoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LuminoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,7 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				D2E213A92D2DB2BA00532DB2 /* Luminote */,
-				D268D9FF2D2EFE3E002BD85D /* GoogleService-Info (1).plist */,
+				D268D9FF2D2EFE3E002BD85D /* GoogleService-Info.plist */,
 				D2E213BA2D2DB2C700532DB2 /* LuminoteTests */,
 				D2E213C42D2DB2C700532DB2 /* LuminoteUITests */,
 				D2E213A82D2DB2BA00532DB2 /* Products */,
@@ -237,7 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D268DA002D2EFE3E002BD85D /* GoogleService-Info (1).plist in Resources */,
+				D268DA002D2EFE3E002BD85D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +422,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Luminote/Preview Content\"";
+				DEVELOPMENT_TEAM = A4HLPVD26Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -450,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Luminote/Preview Content\"";
+				DEVELOPMENT_TEAM = A4HLPVD26Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
