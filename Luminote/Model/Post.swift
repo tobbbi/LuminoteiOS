@@ -12,6 +12,10 @@ struct Post: Identifiable, Codable {
     @DocumentID var postId: String?
     let ownerUid: String
     let caption: String
+    let energyLevel: Int
+    var photo: String?
+    var location: String?
+    var visibility: String
     let timestamp: Timestamp
     var likes: Int
     
@@ -21,4 +25,5 @@ struct Post: Identifiable, Codable {
     
     var user: User?
 }
+
 

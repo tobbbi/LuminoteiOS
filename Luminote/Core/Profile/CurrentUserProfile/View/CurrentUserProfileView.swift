@@ -10,6 +10,7 @@ import SwiftUI
 struct CurrentUserProfileView: View {
     @StateObject var viewModel = CurrentUserProfileViewModel()
     @State private var showEditProfile = false
+    @State private var showMenuView = false
     
     private var currentUser: User? {
         return viewModel.currentUser
@@ -20,8 +21,8 @@ struct CurrentUserProfileView: View {
             ScrollView(showsIndicators: false) {
                 // bio and stats
                 VStack(spacing: 20) {
-                        ProfileHeaderView(user: currentUser)
-                        
+                    ProfileHeaderView(user: currentUser)
+                    
                     Button {
                         showEditProfile.toggle()
                     } label: {
@@ -37,7 +38,7 @@ struct CurrentUserProfileView: View {
                                     .stroke(Color(.systemGray4), lineWidth: 1)
                             }
                     }
-                        
+                    
                     // user content list view
                     if let user = currentUser {
                         UserContentListView(user: user)
@@ -50,12 +51,29 @@ struct CurrentUserProfileView: View {
                 }
             })
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    NavigationLink(destination: FriendsView()) {
+                        Image(systemName: "person.2")
+                            .foregroundColor(.black)
+                    }
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        AuthService.shared.signOut()
+                        showMenuView.toggle()
                     } label: {
                         Image(systemName: "line.3.horizontal")
+                            .foregroundColor(.black)
                     }
+                    .sheet(isPresented: $showMenuView) {
+                        MenuView()
+                    }
+                }
+                ToolbarItem(placement: .principal) {
+                    Image("Luminote_logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 120, height: 120)
+                        .padding(.bottom, 10)
                 }
             }
             .padding(.horizontal)

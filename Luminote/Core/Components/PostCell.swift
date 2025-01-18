@@ -23,7 +23,7 @@ struct PostCell: View {
                         
                         Spacer()
                         
-                        Text(post.timestamp.timestampString())
+                        Text(post.timestamp.dateValue().relativeTimestampString())
                             .font(.caption)
                             .foregroundColor(Color(.systemGray3))
                         
@@ -40,33 +40,47 @@ struct PostCell: View {
                         .multilineTextAlignment(.leading)
                     
                     HStack(spacing: 16) {
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "heart")
-                        }
+                        Text("\(post.energyLevel)")
+                            .font(.footnote)
+                            .padding(4)
+                            .background(Color.yellow.opacity(0.7))
+                            .cornerRadius(6)
                         
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "bubble.right")
+                        if let imageUrl = post.photo {
+                            AsyncImage(url: URL(string: imageUrl)) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(maxHeight: 150)
+                                    .cornerRadius(8)
+                            } placeholder: {
+                                ProgressView()
+                            }
                         }
+                    }
+                    
+                    HStack {
+                        Text(post.location ?? "")
+                            .font(.caption)
+                            .foregroundColor(Color.gray)
                         
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "arrow.rectanglepath")
-                        }
+                        Spacer()
                         
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "paperplane")
+                        HStack {
+                            Text(post.timestamp.dateValue().relativeTimestampString())
+                                .font(.caption)
+                                .foregroundColor(Color(.systemGray3))
                         }
-                        
-                        }
-                    .foregroundColor(.black)
+                    }
                     .padding(.vertical, 8)
+                    
+                    HStack {
+                        Text("Visibility: \(post.visibility)")
+                            .font(.caption)
+                            .foregroundColor(Color(.blue))
+                        Spacer()
+                    }
+                    .padding(.top, 8)
                     
                 }
             }
@@ -76,6 +90,8 @@ struct PostCell: View {
         .padding()
     }
 }
+
+
 
 struct PostCell_Previews: PreviewProvider {
     static var previews: some View {

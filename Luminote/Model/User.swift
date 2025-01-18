@@ -5,8 +5,6 @@
 //  Created by Tobias Knoeppel on 09.01.25.
 //
 
-import Foundation
-
 struct User: Identifiable, Codable, Hashable {
     let id: String
     let fullname: String
@@ -14,4 +12,10 @@ struct User: Identifiable, Codable, Hashable {
     let username: String
     var profileImageUrl: String?
     var bio: String?
+
+    // Neue Eigenschaften
+    var isSuggested: Bool = false
+    var isFriend: Bool = false
+    var hasRequested: Bool = false
 }
+

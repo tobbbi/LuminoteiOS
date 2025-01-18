@@ -21,18 +21,18 @@ struct LoginView: View {
                     .padding()
                 
                 VStack {
-                    TextField("Enter you email", text: $viewModel.email)
+                    TextField("Deine Email", text: $viewModel.email)
                         .autocapitalization(.none)
                         .modifier(LuminoteTextFieldModifier())
                     
-                    SecureField("Enter your password", text: $viewModel.password)
+                    SecureField("Dein Passwort", text: $viewModel.password)
                         .modifier(LuminoteTextFieldModifier())
                 }
                 
                 NavigationLink {
-                    Text("Forgot password")
+                    ForgotPasswordView()
                 } label: {
-                    Text("Forgot password?")
+                    Text("Passwort vergessen?")
                         .font(.footnote)
                         .fontWeight(.semibold)
                         .padding(.vertical)
@@ -44,7 +44,7 @@ struct LoginView: View {
                 Button {
                     Task { try await viewModel.login()}
                 } label: {
-                    Text("Login")
+                    Text("Anmelden")
                         .modifier(LuminoteButton1Modifier())
                 }
                 
@@ -57,9 +57,9 @@ struct LoginView: View {
                         .navigationBarBackButtonHidden(true)
                 } label: {
                     HStack(spacing: 3) {
-                        Text("Don't have an account?")
+                        Text("Du hast noch keinen Account?")
                         
-                        Text("Sign up")
+                        Text("Registriere Dich!")
                             .fontWeight(.semibold)
                     }
                     .foregroundColor(.black)

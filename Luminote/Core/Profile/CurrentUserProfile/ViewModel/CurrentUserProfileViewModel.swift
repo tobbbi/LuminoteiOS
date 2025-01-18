@@ -1,5 +1,5 @@
 //
-//  ProfileViewModel.swift
+//  CurrentUserProfileViewModel.swift
 //  Luminote
 //
 //  Created by Tobias Knoeppel on 09.01.25.

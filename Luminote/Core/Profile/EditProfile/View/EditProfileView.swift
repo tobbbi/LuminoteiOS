@@ -11,7 +11,6 @@ import PhotosUI
 struct EditProfileView: View {
     let user: User
     @State private var bio = ""
-    @State private var link = ""
     @State private var isPrivateProfile = false
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel = EditProfileViewModel()
@@ -32,6 +31,7 @@ struct EditProfileView: View {
                             Text(user.fullname) // not editable
                         }
                         
+                        
                         Spacer()
                         
                         PhotosPicker(selection: $viewModel.selectedItem) {
@@ -51,19 +51,23 @@ struct EditProfileView: View {
                     
                     // bio field
                     VStack(alignment: .leading) {
+                        Text("Username")
+                            .fontWeight(.semibold)
+                        
+                        Text(user.username) // not editable
+                            .foregroundColor(.gray)
+                            
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading) // Erzwingt linksbündige Ausrichtung
+                    
+                    Divider()
+                    
+                    // bio field
+                    VStack(alignment: .leading) {
                         Text("Bio")
                             .fontWeight(.semibold)
                         
                         TextField("Enter your bio...", text: $bio, axis: .vertical)
-                    }
-                    
-                    Divider()
-                    
-                    VStack(alignment: .leading) {
-                        Text("Link")
-                            .fontWeight(.semibold)
-                        
-                        TextField("Add link...", text: $link)
                     }
                     
                     Divider()

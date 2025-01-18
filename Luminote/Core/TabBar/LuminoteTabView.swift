@@ -21,38 +21,23 @@ struct LuminoteTabView: View {
                 .onAppear{ selectedTab = 0 }
                 .tag(0)
             
-            ExploreView()
+            Text("") // Empty tab to maintain the original layout space
                 .tabItem {
-                    Image(systemName: "magnifyingglass")
+                    Image(systemName: "plus")
                 }
                 .onAppear{ selectedTab = 1 }
                 .tag(1)
             
-            Text("")
+            CurrentUserProfileView()
                 .tabItem {
-                    Image(systemName: "plus")
+                    Image(systemName: selectedTab == 2 ? "person.fill" : "person")
+                        .environment(\.symbolVariants, selectedTab == 2 ? .fill : .none)
                 }
                 .onAppear{ selectedTab = 2 }
                 .tag(2)
-            
-            ActivityView()
-                .tabItem {
-                    Image(systemName: selectedTab == 3 ? "heart.fill" : "heart")
-                        .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
-                }
-                .onAppear{ selectedTab = 3 }
-                .tag(3)
-            
-            CurrentUserProfileView()
-                .tabItem {
-                    Image(systemName: selectedTab == 4 ? "person.fill" : "person")
-                        .environment(\.symbolVariants, selectedTab == 4 ? .fill : .none)
-                }
-                .onAppear{ selectedTab = 4 }
-                .tag(4)
         }
         .onChange(of: selectedTab, perform: {newValue in
-            showCreatePostView = selectedTab == 2
+            showCreatePostView = selectedTab == 1
         })
         .sheet(isPresented: $showCreatePostView, onDismiss: {
             selectedTab = 0 // to remember the tab that was opened before clicking "+ create post", the logic can be implemented here
@@ -62,6 +47,7 @@ struct LuminoteTabView: View {
         .tint(.black)
     }
 }
+
 
 #Preview {
     LuminoteTabView()

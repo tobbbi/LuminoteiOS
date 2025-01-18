@@ -21,19 +21,19 @@ struct RegistrationView: View {
                 .padding()
             
             VStack {
-                TextField("Enter you email", text: $viewModel.email)
+                TextField("Deine Email", text: $viewModel.email)
                     .autocapitalization(.none)
                     .modifier(LuminoteTextFieldModifier())
                 
-                SecureField("Enter your password", text: $viewModel.password)
+                SecureField("Dein Passwort", text: $viewModel.password)
                     .modifier(LuminoteTextFieldModifier())
                 
                 VStack {
-                    TextField("Enter you full name", text: $viewModel.fullname)
+                    TextField("Dein Anzeigename", text: $viewModel.fullname)
                     .modifier(LuminoteTextFieldModifier())
                     
                     VStack {
-                        TextField("Enter you username", text: $viewModel.username)
+                        TextField("Dein Username", text: $viewModel.username)
                         .autocapitalization(.none)
                     .modifier(LuminoteTextFieldModifier())
                         
@@ -42,7 +42,7 @@ struct RegistrationView: View {
                         Button {
                             Task { try await viewModel.createUser() }
                         } label: {
-                            Text("Sign up")
+                            Text("Registrieren")
                                 .modifier(LuminoteButton1Modifier())
                         }
                         .padding(.vertical)
@@ -55,9 +55,9 @@ struct RegistrationView: View {
                         dismiss()
                     } label: {
                         HStack(spacing: 3) {
-                            Text("Already have an account?")
+                            Text("Du hast schon einen Account?")
                             
-                            Text("Sign in")
+                            Text("Melde dich an!")
                                 .fontWeight(.semibold)
                         }
                         .foregroundColor(.black)

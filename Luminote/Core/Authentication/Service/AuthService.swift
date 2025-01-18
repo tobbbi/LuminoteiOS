@@ -54,7 +54,18 @@ class AuthService {
         username: String,
         id: String
     ) async throws {
-        let user = User(id: id, fullname: fullname, email: email, username: username)
+        let user = User(
+            id: id,
+            fullname: fullname,
+            email: email,
+            username: username,
+            profileImageUrl: nil,
+            bio: nil,
+            isSuggested: true, // Standardwert
+            isFriend: false,   // Standardwert
+            hasRequested: false // Standardwert
+        )
+        
         guard let userData = try? Firestore.Encoder().encode(user) else { return }
         try await Firestore.firestore().collection("users").document(id).setData(userData)
         UserService.shared.currentUser = user

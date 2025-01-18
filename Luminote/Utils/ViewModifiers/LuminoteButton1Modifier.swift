@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct LuminoteButton1Modifier: ViewModifier{
+struct LuminoteButton1Modifier: ViewModifier {
     func body(content: Content) -> some View {
-        content.font(.subheadline)
+        content
             .font(.subheadline)
             .fontWeight(.semibold)
             .foregroundColor(.white)
             .frame(width: 352, height: 44)
-            .background(.black)
+            .background(Color.buttonBackgroundColor)
             .cornerRadius(8)
     }
 }
